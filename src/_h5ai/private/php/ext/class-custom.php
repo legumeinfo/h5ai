@@ -40,6 +40,15 @@ class Custom {
         $this->read_custom_file($path, 'header', $header, $header_type);
         $this->read_custom_file($path, 'footer', $footer, $footer_type);
 
+        if ($header === null) {
+            foreach (glob($path . "/*/README.*.yml") as $readme_path) {
+                $header ??= "<h3>Overview of data in this directory</h3>";
+                $header_type ??= "html";
+                $header .= "<b>" . basename(dirname($readme_path)) . "</b>: "
+                        . exec("sed -n -e 's/\"//g' -e 's/^synopsis: //p' '$readme_path'") . "<br />";
+            }
+        }
+
         while ($header === null || $footer === null) {
             if ($header === null) {
                 $this->read_custom_file($path, 'headers', $header, $header_type);

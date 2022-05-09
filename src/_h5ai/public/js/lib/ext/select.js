@@ -194,7 +194,6 @@ const init = () => {
         $selectionRect.hide().appTo('#content');
 
         dom('#content')
-            .on('mousedown', selectionStart)
             .on('drag', ev => ev.preventDefault())
             .on('dragstart', ev => ev.preventDefault());
     }

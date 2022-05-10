@@ -1,3 +1,24 @@
+# data.legumeinfo.org
+
+## Development
+
+This repository includes datastore-metadata as a git submodule for development/testing.
+
+To build/run a local devevelopment instance:
+
+```
+docker compose up -d --build
+```
+Point your browser to http://localhost:8000
+
+* Modifications will only be reflected on container image rebuild.
+* Unlike the production instance, the top-level directory is `v2/` in this development instance.
+* To view/test footers, put `_h5ai.footers.html` in `datastore-metadata/`
+
+## Production
+
+TODO
+
 # h5ai
 
 [![license][license-img]][github] [![web][web-img]][web] [![github][github-img]][github]

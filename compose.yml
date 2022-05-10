@@ -1,0 +1,7 @@
+services:
+  h5ai:
+    build: .
+    ports:
+      - "8000:80"
+    volumes:
+      - ./datastore-metadata:/var/www/html/v2:ro

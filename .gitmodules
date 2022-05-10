@@ -1,0 +1,3 @@
+[submodule "datastore-metadata"]
+	path = datastore-metadata
+	url = https://github.com/legumeinfo/datastore-metadata.git

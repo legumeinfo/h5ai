@@ -25,7 +25,7 @@ class Custom {
         foreach (glob($path . "/README.*.yml") as $readme_path) {
             if (is_readable($readme_path)) {
                 $content = file_get_contents($readme_path);
-                $footer .= '<pre>' . file_get_contents($readme_path) . '</pre>';
+                $footer .= '<code style="white-space: pre-wrap">' . file_get_contents($readme_path) . '</code>';
                 break;
             }
         }

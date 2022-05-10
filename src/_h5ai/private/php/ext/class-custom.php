@@ -20,7 +20,18 @@ class Custom {
         $header = null;
         $header_type = null;
         $footer_type = 'html';
-        $footer ='
+        $footer = null;
+
+        foreach (glob($path . "/README.*.yml") as $readme_path) {
+            if (is_readable($readme_path)) {
+                $content = file_get_contents($readme_path);
+                $footer .= '<pre>' . file_get_contents($readme_path) . '</pre>';
+                break;
+            }
+        }
+
+        $footer .='
+<hr>
 <p>
 <b>Abbreviations</b>:
 <b>gnm</b> = genome assembly; 
@@ -44,8 +55,7 @@ class Custom {
 <br>
 <p><b>Please <a href="/contact">contact us</a></b> to contribute data, or to set up a similar repository. 
 Metadata templates and protocols: see the <a href="/data/metadata/">metadata directory</a> and 
-<a href="https://github.com/LegumeFederation/datastore/">github</a>.</p>
-<hr>';
+<a href="https://github.com/LegumeFederation/datastore/">github</a>.</p>';
 
         if ($header === null) {
             foreach (glob($path . "/*/README.*.yml") as $readme_path) {
@@ -53,14 +63,6 @@ Metadata templates and protocols: see the <a href="/data/metadata/">metadata dir
                 $header_type ??= "html";
                 $header .= "<b>" . basename(dirname($readme_path)) . "</b>: "
                         . exec("sed -n -e 's/\"//g' -e 's/^synopsis: //p' '$readme_path'") . "<br />";
-            }
-        }
-
-        foreach (glob($path . "/README.*.yml") as $readme_path) {
-            if (is_readable($readme_path)) {
-                $content = file_get_contents($readme_path);
-                $footer .= '<pre>' . file_get_contents($readme_path) . '</pre>';
-                break;
             }
         }
 

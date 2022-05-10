@@ -65,7 +65,7 @@
         "fastBrowsing": true,
         "fonts": ["Ubuntu", "Roboto", "Helvetica", "Arial", "sans-serif"],
         "fontsMono": ["Ubuntu Mono", "Monaco", "Lucida Sans Typewriter", "monospace"],
-        "hidden": ["^\\.", "^_h5ai"],
+        "hidden": ["^\\.", "^_h5ai", "^data$", "^private", "^public", ".fai$", ".gzi$", ".tbi$"],
         "hideFolders": false,
         "hideIf403": true,
         "hideParentFolder": false,
@@ -148,7 +148,7 @@
     */
     "filter": {
         "enabled": false,
-        "advanced": true,
+        "advanced": false,
         "debounceTime": 100,
         "ignorecase": true
     },
@@ -162,7 +162,7 @@
     - type: string, "php" (sloooow) or "shell-du" (sloow)
     */
     "foldersize": {
-        "enabled": true,
+        "enabled": false,
         "type": "php"
     },
 
@@ -173,8 +173,8 @@
     - id: string, account ID
     */
     "google-analytics-ua": {
-        "enabled": false,
-        "id": "UA-000000-0"
+        "enabled": true,
+        "id": "UA-49655154-3"
     },
 
     /*
@@ -309,8 +309,8 @@
     - ignorecase: boolean, ignore case
     */
     "search": {
-        "enabled": false,
-        "advanced": true,
+        "enabled": true,
+        "advanced": false,
         "debounceTime": 300,
         "ignorecase": true
     },

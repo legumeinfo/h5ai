@@ -1,0 +1,20 @@
+on:
+  push:
+    tags: ['**']
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - run: tar -C build -czf build/h5ai-${GITHUB_REF_NAME}.tar.gz _h5ai
+      - uses: softprops/action-gh-release@v1
+        with:
+          fail_on_unmatched_files: true
+          files: build/h5ai-*.tar.gz

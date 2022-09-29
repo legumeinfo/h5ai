@@ -1,0 +1,23 @@
+on:
+  push:
+    tags: ['**']
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - run: tar -C build -czf build/h5ai-${GITHUB_REF_NAME}.tar.gz _h5ai
+      - uses: actions/upload-artifact@v3
+        with:
+          path: build/h5ai-**.tar.gz
+          if-no-files-found: error 

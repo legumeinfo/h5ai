@@ -20,3 +20,6 @@ COPY --from=builder /app/build/_h5ai ./_h5ai
 RUN chown www-data _h5ai/private/cache _h5ai/public/cache
 
 COPY ./httpd-h5ai.conf /etc/apache2/sites-enabled/h5ai.conf
+
+# needed by httpd-h5ai.conf
+RUN a2enmod rewrite headers

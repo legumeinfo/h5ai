@@ -40,8 +40,8 @@ const requestTextContent = href => {
                 }
             }
         };
-
-        xhr.open('GET', href, true);
+// FIXME: add display=text query param only for type "txt-gz"
+        xhr.open('GET', href + "?display=text", true);
         xhr.onreadystatechange = callback;
         xhr.send();
     });

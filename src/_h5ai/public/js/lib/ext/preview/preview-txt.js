@@ -2,8 +2,11 @@ const lolight = require('lolight');
 const marked = require('marked');
 const {keys, dom} = require('../../util');
 const allsettings = require('../../core/settings');
+const config = require('../../config');
 const preview = require('./preview');
 
+
+const types = config.types; 
 const win = global.window;
 const XHR = win.XMLHttpRequest;
 const settings = Object.assign({
@@ -40,8 +43,22 @@ const requestTextContent = href => {
                 }
             }
         };
-// FIXME: add display=text query param only for type "txt-gz"
-        if(href.endsWith(".bed.gz") || href.endsWith(".vcf.gz") || href.endsWith(".gff3.gz")){
+
+        //Defines the types that should display preview
+        var txtgz = types["txt-gz"];
+
+        //conditional on whether or not the link is of type txt-gz
+        var isTxtgz = false; 
+
+        //loop checks whether the link is of txt-gz. slice(1) is used to remove the asterisk before each string in the types.json file.
+        for(const str in txtgz){
+            if(href.endsWith(str.slice(1))){
+                isTxtgz = true;
+            }
+        }
+        
+        //display preview if link is of type txt-gz
+        if(isTxtgz){
             xhr.open('GET', href + "?display=text", true);
         }
         else{

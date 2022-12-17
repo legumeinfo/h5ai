@@ -1,4 +1,5 @@
 {
-    "onCreateCommand": "sudo apt update && sudo apt install -y --no-install-recommends fuse3 rclone && sudo rm -rf /var/lib/apt/lists/* && sudo sh -c 'echo user_allow_other >> /etc/fuse.conf'",
-    "postAttachCommand": "mkdir -p datastore && rclone mount --allow-other --daemon --http-url https://data.legumeinfo.org/ :http:/ $PWD/datastore && docker compose up -d"
+    // sudo mount --make-shared /workspaces for:
+    // https://forums.docker.com/t/make-mount-point-accesible-from-container-to-host-rshared-not-working/108759/2
+    "postAttachCommand": "sudo mount --make-shared /workspaces && docker compose up -d"
 }

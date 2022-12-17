@@ -3,5 +3,31 @@ services:
     build: .
     ports:
       - "8000:80"
+    devices:
+      - /dev/fuse
+    cap_add:
+      - SYS_ADMIN
     volumes:
-      - ./datastore:/var/www/html/v2:ro
+      - type: bind
+        source: ./datastore
+        target: /var/www/html/v2
+        bind:
+          propagation: shared
+        read_only: true
+    depends_on:
+      - rclone
+  rclone:
+    image: rclone/rclone:1.60.1
+    # reference: https://stackoverflow.com/a/53632103
+    devices:
+      - /dev/fuse
+    cap_add:
+      - SYS_ADMIN
+    volumes:
+      - type: bind
+        source: ./datastore
+        target: /var/www/html/v2
+        bind:
+          propagation: shared
+        read_only: true
+    command: mount --allow-other --allow-non-empty --http-url https://data.legumeinfo.org/ :http:/ /var/www/html/v2

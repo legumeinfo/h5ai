@@ -4,4 +4,4 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - ./datastore-metadata:/var/www/html/v2:ro
+      - ./datastore:/var/www/html/v2:ro

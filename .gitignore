@@ -1,6 +1,7 @@
 /.nyc_output/
 /build/
 /coverage/
+/datastore/
 /local/
 /node_modules/
 /npm-debug.log

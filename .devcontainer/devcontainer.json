@@ -1,0 +1,4 @@
+{
+    "onCreateCommand": "sudo apt update && sudo apt install -y --no-install-recommends fuse3 rclone && sudo rm -rf /var/lib/apt/lists/* && sudo sh -c 'echo user_allow_other >> /etc/fuse.conf'",
+    "postAttachCommand": "mkdir -p datastore && rclone mount --allow-other --daemon --http-url https://data.legumeinfo.org/ :http:/ $PWD/datastore && docker compose up -d"
+}

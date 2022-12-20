@@ -60,7 +60,6 @@ const requestTextContent = href => {
         //display preview if link is of type txt-gz
         if(isTxtgz){
             xhr.open('GET', href + "?display=text", true);
-            xhr.setRequestHeader('Range', 'bytes=0-999');
         }
         else{
             xhr.open('GET', href, true);

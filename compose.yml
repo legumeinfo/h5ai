@@ -12,6 +12,7 @@ services:
         source: ./datastore
         target: /var/www/html/v2
         bind:
+          create_host_path: true
           propagation: shared
         read_only: true
     depends_on:
@@ -28,6 +29,7 @@ services:
         source: ./datastore
         target: /var/www/html/v2
         bind:
+          create_host_path: true
           propagation: shared
         read_only: true
     command: mount --allow-other --allow-non-empty --attr-timeout 60m --buffer-size 1G --dir-cache-time 60m --poll-interval 0 --vfs-cache-mode full --vfs-read-chunk-size 64k --vfs-cache-poll-interval 60m --http-url https://data.legumeinfo.org/ :http:/ /var/www/html/v2

@@ -22,4 +22,4 @@ RUN chown www-data _h5ai/private/cache _h5ai/public/cache
 COPY ./httpd-h5ai.conf /etc/apache2/sites-enabled/h5ai.conf
 
 # needed by httpd-h5ai.conf
-RUN a2enmod rewrite headers
+RUN a2enmod rewrite headers ext_filter

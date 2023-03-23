@@ -49,7 +49,8 @@ class Custom {
 <b>.gzi, .fai</b> = index files produced by samtools fadix
 </p> <br>
 <p><b>Navigating</b>: Navigate via the folder links below or to the left.</p>
-<p><b>Downloading</b>: Mark one or more folders or files with a checkmark (hover to the left of the folder icon), then click the download icon (down-arrow in the upper left).</p>
+<p><b>Previewing</b>: Click on any .gz file for an in-browser preview of the first 1000 bytes.</p>
+<p><b>Downloading</b>: Mark one or more folders or files with a checkmark (hover to the left of the folder icon), then click the download icon (down-arrow in the upper left), *or* right-click, "Copy link", and download using another software utility (such as curl or wget).</p>
 <p><b>Searching</b>: See the magnifying glass in the upper left.</p>
 <p><b>Dataset key names and Registry</b>: The four-letter string in the README and the filenames (e.g. gNmT) is a unique key, which associates the file(s) in a directory (a data collection) with the metadata for the file(s). The keys are also recorded at the <a href="http://bit.ly/LegFed_registry">Registry</a>.</p>
 <br>

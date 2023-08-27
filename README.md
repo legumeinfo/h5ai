@@ -15,6 +15,15 @@ Point your browser to http://localhost:8000
 * Unlike the production instance, the top-level directory is `v2/` in this development instance.
 * To view/test footers, put `_h5ai.footers.html` in `datastore-metadata/`
 
+### podman
+
+To build and run using rootless podman:
+
+```
+podman build -t h5ai .
+podman run -p <port>:80 -v /path/to/mount:/mnt:ro --cap-add=CAP_NET_BIND_SERVICE --userns=keep-id:gid=<gid for /path/to/mount> --rm h5ai
+```
+
 ## Production
 
 TODO

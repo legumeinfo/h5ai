@@ -3,15 +3,17 @@ const {dom} = require('../util');
 const SEL_ROOT = 'body';
 const TPL_TOPBAR =
         `<div id="topbar">
-        <a href="https://www.legumeinfo.org/">
-        <img src="https://www.legumeinfo.org/assets/img/lis-logo-small.png" alt="LIS - Legume Information System">
+        <a href="javascript: location.hostname.includes(\`soybase.org\`) ? window.location = \`https://www.soybase.org/\` : window.location = \`https://www.legumeinfo.org\`">
+        <img src="https://www.legumeinfo.org/assets/img/lis-logo-small.png" alt="Legume Information System logo">
         </a>
             <div id="toolbar"></div>
             <div id="flowbar"></div>
+            <!--
             <a id="backlink" href="https://larsjung.de/h5ai/" title="powered by h5ai - https://larsjung.de/h5ai/">
                 <div>powered</div>
                 <div>by h5ai</div>
             </a>
+            -->
         </div>`;
 const TPL_MAINROW =
         `<div id="mainrow">

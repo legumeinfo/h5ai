@@ -65,7 +65,7 @@
         "fastBrowsing": true,
         "fonts": ["Ubuntu", "Roboto", "Helvetica", "Arial", "sans-serif"],
         "fontsMono": ["Ubuntu Mono", "Monaco", "Lucida Sans Typewriter", "monospace"],
-        "hidden": ["^\\.", "^_h5ai", "^data$", "^private", "^public", ".fai$", ".gzi$", ".tbi$"],
+        "hidden": ["^\\.", "^_h5ai", "^annex", "^data$", "^private", "^public", ".fai$", ".gzi$", ".tbi$"],
         "hideFolders": false,
         "hideIf403": true,
         "hideParentFolder": false,
@@ -173,8 +173,8 @@
     - id: string, account ID
     */
     "google-analytics-ua": {
-        "enabled": true,
-        "id": "UA-49655154-3"
+        "enabled": false,
+        "id": "UA-00000000-0"
     },
 
     /*

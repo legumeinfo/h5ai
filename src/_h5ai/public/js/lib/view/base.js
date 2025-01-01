@@ -5,7 +5,7 @@ let location = window.location.hostname.includes('soybase.org');
 const TPL_TOPBAR =
        location ? `<div id="topbar">
         <a href="javascript: window.location = \`https://www.soybase.org/\` ">
-       <img src="https://dev.soybase.org/assets/img/sb_logo.png" height=51 width=50 alt="Soybase logo">
+       <img src="https://www.soybase.org/assets/img/sb_logo.png" height=51 width=50 alt="Soybase logo">
         </a>
             <div id="toolbar"></div>
             <div id="flowbar"></div>

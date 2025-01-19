@@ -1,4 +1,4 @@
-FROM node:14-alpine AS builder
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 COPY package*.json .
@@ -6,6 +6,7 @@ RUN npm ci
 
 COPY ghu.js .
 COPY src src
+ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN npm run build
 
 FROM php:8.1-apache

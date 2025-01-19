@@ -8,14 +8,14 @@ class Custom {
     }
 
     public function get_customizations($href) {
-        if (!$this->context->query_option('custom.enabled', false)) {
+        $path = $this->context->to_path($href);
+        if (!$this->context->query_option('custom.enabled', false) ||
+            !$this->context->is_managed_path($path)) {
             return [
                 'header' => ['content' => null, 'type' => null],
                 'footer' => ['content' => null, 'type' => null]
             ];
         }
-
-        $path = $this->context->to_path($href);
 
         $header = null;
         $header_type = null;

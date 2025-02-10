@@ -9,12 +9,7 @@ COPY src src
 ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN npm run build
 
-FROM php:8.1-apache
-
-RUN apt update && apt install -y --no-install-recommends \
-  unzip \
-  zip \
-  && rm -rf /var/lib/apt/lists/*
+FROM php:8.4-apache
 
 COPY --from=builder /app/build/_h5ai ./_h5ai
 

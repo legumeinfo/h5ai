@@ -26,7 +26,11 @@ class Api {
         $as = $this->request->query('as');
         $type = $this->request->query('type');
         $base_href = $this->request->query('baseHref');
-        $hrefs = $this->request->query('hrefs', '');
+        $hrefs = $this->request->query('hrefs');
+
+        if ($hrefs === null || $hrefs === '') {
+            Util::json_fail(Util::ERR_MISSING_PARAM, 'missing hrefs');
+        }
 
         $archive = new Archive($this->context);
 
